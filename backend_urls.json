@@ -1,0 +1,4 @@
+{
+    "AUTHENTICATE" : "http://localhost:6666/auth/authenticate",
+    "AUTHORIZE" : "http://localhost:6666/auth/authorize-token"
+}

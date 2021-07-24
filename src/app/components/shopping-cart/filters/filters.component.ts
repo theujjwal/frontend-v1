@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltersComponent implements OnInit {
 
-  constructor() { }
+  public options: String[];
+  constructor() { 
+    this.options = ['LAPTOP', 'PHONE', 'FURNITURE'];
+  }
 
   ngOnInit(): void {
   }
