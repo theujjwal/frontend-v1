@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< Updated upstream
 import { HttpClientModule} from '@angular/common/http';
-=======
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
->>>>>>> Stashed changes
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +17,7 @@ import { CartComponent } from './components/shopping-cart/cart/cart.component';
 import { CartItemComponent } from './components/shopping-cart/cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './components/shopping-cart/product-list/product-item/product-item.component';
 import { LoginComponent } from './components/login/login.component';
+import { CreateofferComponent } from './components/createoffer/createoffer.component';
 
 
 @NgModule({
@@ -33,18 +32,15 @@ import { LoginComponent } from './components/login/login.component';
     CartComponent,
     CartItemComponent,
     ProductItemComponent,
-    LoginComponent
+    LoginComponent,
+    CreateofferComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< Updated upstream
-    HttpClientModule
-=======
     HttpClientModule,
-    AppRoutingModule,
     FormsModule,
->>>>>>> Stashed changes
+
   ],
   providers: [],
   bootstrap: [AppComponent]

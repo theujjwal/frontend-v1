@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/employee.service';
 
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
