@@ -9,7 +9,7 @@ import { EmployeeService } from 'src/app/employee.service';
 
 export class NavComponent implements OnInit {
 
-  public isLoggedIn: Boolean = false;
+  // public isLoggedIn: Boolean = false;
 
   constructor(private empService: EmployeeService) { }
 
@@ -18,12 +18,15 @@ export class NavComponent implements OnInit {
 
   login() {
     // for inputs -> empid and password
-    this.isLoggedIn = this.empService.login('subsa', 'abcd1234');
+     this.empService.login('subsa', 'abcd1234');
   }
 
   logout() {
     this.empService.logout();
-    this.isLoggedIn = false;
+  }
+
+  isLoggedIn():Boolean {
+    return this.empService.isLoggedIn();
   }
 
   getEmpId(): String {

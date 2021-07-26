@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
     let productExists = false
 
     for (let i in this.cartItems) {
-      if (this.cartItems[i].productId === product.id) {
+      if (this.cartItems[i].productId === product.offerId) {
         this.cartItems[i].qty++
         productExists = true
         break;
@@ -35,8 +35,8 @@ export class CartComponent implements OnInit {
 
     if (!productExists) {
       this.cartItems.push({
-        productId: product.id,
-        productName: product.name,
+        productId: product.offerId,
+        productName: product.details,
         qty: 1,
         price: product.price
       })

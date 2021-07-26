@@ -1,35 +1,46 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Product } from './models/product';
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
+  private AUTH_URL: String = 'http://localhost:10111/auth';
+  private OMS_URL: String = 'http://localhost:9999/offer-service';
+  private EMS_URL: String = 'http://localhost:9090/employee-service';
+  private PMS_URL: String = 'http://localhost:9090/points-service';
+
   private user: any = null;
   private jwtToken: String = null;
+  private isEmpLoggedIn: Boolean = false;
 
   constructor(private http: HttpClient) { }
 
   login(empId: String, password: String): Boolean {
-
-    this.http.post('http://localhost:8899/auth/authenticate',
+    console.log(this.jwtToken);
+    this.http.post(this.AUTH_URL + '/authenticate',
       {
-        "userName": 'subsa',
-        "password": 'abcd1234'
+        'userName': empId,
+        'password': password
       },
-      { observe: 'response' }
+      {
+        observe: 'response'
+      }
     ).subscribe(response => {
-      console.log("response : " + response.status);
-      this.user = {"empId" : empId};
+      this.jwtToken = response.body["token"];
+      console.log("Success response : " + this.jwtToken);
+      this.user = { "empId": empId };
+      this.isEmpLoggedIn = true;
     }, (err) => {
-      console.log("response " + err.status);
-      alert('Invalid credential');
-    }); 
-
-    return true;
+      alert('Can\'t login right now, prev req status code ' + err.status);
+    });
+    return this.isEmpLoggedIn;
   }
 
   logout(): Boolean {
-    return this.user = this.jwtToken = null;
+    this.user = this.jwtToken = null;
+    this.isEmpLoggedIn = false;
+    return true;
   }
 
   getToken(): String {
@@ -38,5 +49,9 @@ export class EmployeeService {
 
   getEmpId(): String {
     return this.user.empId;
+  }
+
+  isLoggedIn(): Boolean {
+    return this.isEmpLoggedIn;
   }
 }

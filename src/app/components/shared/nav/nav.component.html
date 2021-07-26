@@ -6,9 +6,9 @@
     <button class="m-1 btn btn-outline-info">View porfile</button>
     <button class="m-1 btn btn-outline-info">All Offers</button>
     <button class="m-1 btn btn-outline-info">History</button>
-    <button *ngIf="isLoggedIn" class="m-1 btn btn-outline-info">{{getEmpId()}}</button>
+    <button *ngIf="isLoggedIn()" class="m-1 btn btn-outline-info">{{getEmpId()}}</button>
   </nav>
   <!-- <button class="btn btn-outline-primary" *ngIf="!isLoggedIn" (click)="login()">Sign up</button> -->
-  <button class="btn btn-outline-primary" *ngIf="!isLoggedIn" (click)="login()">login</button>
-  <button class="btn btn-outline-primary" *ngIf="isLoggedIn" (click)="logout()">logout</button>
+  <button class="btn btn-outline-primary" *ngIf="!isLoggedIn()" (click)="login()">login</button>
+  <button class="btn btn-outline-primary" *ngIf="isLoggedIn()" (click)="logout()">logout</button>
 </div>
