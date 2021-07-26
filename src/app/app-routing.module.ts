@@ -5,11 +5,13 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { LoginComponent } from './components/login/login.component'
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component'
 import { CreateofferComponent } from './components/createoffer/createoffer.component'
+import { ViewprofileComponent } from './viewprofile/viewprofile.component'
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/shop', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'viewprofile', component: ViewprofileComponent },
   { path: 'shop', component: ShoppingCartComponent },
   { path:'createoffer',component:CreateofferComponent},
   { path: '**', component: PageNotFoundComponent }

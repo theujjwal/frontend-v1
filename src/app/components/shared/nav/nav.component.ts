@@ -17,11 +17,6 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login() {
-    // for inputs -> empid and password
-     this.empService.login('subsa', 'abcd1234');
-  }
-
   logout() {
     this.empService.logout();
   }

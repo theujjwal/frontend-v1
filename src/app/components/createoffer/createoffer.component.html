@@ -2,18 +2,21 @@
     <div class="col-md-4 offset-md-4">
         <form>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Offer Details</label>
-                <textarea [(ngModel)]="offer.details" class="form-control" id="offerdetails" aria-describedby="offerdetailss"></textarea>
-                <div id="offerdetailss" class="form-text">Enter offer details of your product.</div>
+                <label for="offerdetails" class="form-label card-text">Enter offer details</label>
+                <textarea [(ngModel)]="model.details" class="form-control" id="offerdetails" name="model.details"
+                    aria-describedby="offerdetailss"></textarea>
+                <!-- <div id="offerdetailss" class="form-text">Enter offer details of your product.</div> -->
             </div>
             <div class="mb-3">
-                <label for="offerprice" class="form-label">Price</label>
-                <input [ngModel]="offer.price" type="number" min="0" class="form-control" id="offerprice">
+                <label for="offerprice" class="form-label card-text">Price</label>
+                <input [(ngModel)]="model.price" name="model.price" type="number" min="0" class="form-control"
+                    id="offerprice">
             </div>
             <div class="mb-3 form-check">
                 <!-- <input type="text" class="form-check-input" id="exampleCheck1"> -->
-                <label class="form-check-label" for="exampleCheck1"></label>
-                <select [ngModel]="offer.offerCategory" class="form-select" aria-label="Default select example">
+                <!-- <label class="form-check-label" for="exampleCheck1">Offerc</label> -->
+                <select [(ngModel)]="model.offerCategory" name="model.offerCategory" class="form-select"
+                    aria-label="Default select example">
                     <option selected>Select your Category</option>
                     <option value="COMPUTER_ACCESORIES">COMPUTER ACCESORIES</option>
                     <option value="REAL_ESTATE">REAL ESTATE</option>

@@ -18,6 +18,7 @@ import { CartItemComponent } from './components/shopping-cart/cart/cart-item/car
 import { ProductItemComponent } from './components/shopping-cart/product-list/product-item/product-item.component';
 import { LoginComponent } from './components/login/login.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
+import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CreateofferComponent } from './components/createoffer/createoffer.compo
     CartItemComponent,
     ProductItemComponent,
     LoginComponent,
-    CreateofferComponent
+    CreateofferComponent,
+    ViewprofileComponent
   ],
   imports: [
     BrowserModule,

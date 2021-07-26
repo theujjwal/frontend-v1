@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
   <h5 class="my-0 mr-md-auto font-weight-normal">
     <app-header></app-header>
@@ -6,16 +6,14 @@
   <nav class="my-2 my-md-0 mr-md-3">
 
     <!-- <a class="m-1 btn btn-outline-info" [routerLink]="['/shop']">Shop</a> -->
-    <button class="m-1 btn btn-outline-info"  *ngIf="isLoggedIn()">View porfile</button>
-    <button class="m-1 btn btn-outline-info" *ngIf="isLoggedIn() " [routerLink]="['/createoffer']" >Create Offers</button>
-    <button class="m-1 btn btn-outline-info"  *ngIf="isLoggedIn()">History</button>
+    <button class="m-1 fa fa-address-card btn btn-outline-info" *ngIf="isLoggedIn()"
+      [routerLink]="['/viewprofile']"> profile</button>
+    <button class="m-1 btn btn-outline-info" *ngIf="isLoggedIn() " [routerLink]="['/createoffer']">Create
+      Offers</button>
+    <button class="m-1 btn btn-outline-info" *ngIf="isLoggedIn()">History</button>
     <button *ngIf="isLoggedIn()" class="m-1 btn btn-outline-info">{{getEmpId()}}</button>
   </nav>
   <!-- <button class="btn btn-outline-primary" *ngIf="!isLoggedIn" (click)="login()">Sign up</button> -->
   <a class="btn btn-primary" [routerLink]="['/login']" *ngIf="!isLoggedIn()">login</a>
   <button class="btn btn-outline-primary" *ngIf="isLoggedIn()" (click)="logout()">logout</button>
 </div>
-
-
-
-

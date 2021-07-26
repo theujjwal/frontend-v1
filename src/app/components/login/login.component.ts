@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     console.log(this.model)
-    var v = this.empservice.login(this.model.username,this.model.password)
-    if(v){this.router.navigate(['/shop']);}
+    this.empservice.login(this.model.username, this.model.password)
+    this.router.navigate(['/shop']);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from './models/product';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,7 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-  login(empId: String, password: String): Boolean {
+  login(empId: String, password: String): void {
     console.log(this.jwtToken);
     this.http.post(this.AUTH_URL + '/authenticate',
       {
@@ -34,7 +35,6 @@ export class EmployeeService {
     }, (err) => {
       alert('Can\'t login right now, prev req status code ' + err.status);
     });
-    return this.isEmpLoggedIn;
   }
 
   logout(): Boolean {
@@ -53,5 +53,15 @@ export class EmployeeService {
 
   isLoggedIn(): Boolean {
     return this.isEmpLoggedIn;
+  }
+
+  getEmpDetials(): Observable<any> {
+    return this.http.get(this.EMS_URL + '/employees/' + this.getEmpId(),
+      {
+        headers: new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`),
+        observe: 'response',
+        responseType: 'json'
+      }
+    );
   }
 }
