@@ -1,4 +1,5 @@
 export class Employee {
+<<<<<<< Updated upstream
     // private empId: String;
     // private firstName: String;
     // private lastName: String;
@@ -16,4 +17,6 @@ export class Employee {
         private pointsGained: Number) {
 
     }
+=======
+>>>>>>> Stashed changes
 }

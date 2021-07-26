@@ -6,3 +6,8 @@
 .product-btn{
     font-size: xx-small;
 }
+
+
+.btn-primary.disabled, .btn-primary:disabled {
+    cursor: crosshair;
+  }
