@@ -6,14 +6,18 @@
   <nav class="my-2 my-md-0 mr-md-3">
 
     <!-- <a class="m-1 btn btn-outline-info" [routerLink]="['/shop']">Shop</a> -->
-    <button class="m-1 fa fa-address-card btn btn-outline-info" *ngIf="isLoggedIn()"
-      [routerLink]="['/viewprofile']"> profile</button>
-    <button class="m-1 btn btn-outline-info" *ngIf="isLoggedIn() " [routerLink]="['/createoffer']">Create
-      Offers</button>
-    <button class="m-1 btn btn-outline-info" *ngIf="isLoggedIn()">History</button>
-    <button *ngIf="isLoggedIn()" class="m-1 btn btn-outline-info">{{getEmpId()}}</button>
+    <button class="m-1 btn btn-outline-info" *ngIf="isLoggedIn()" [routerLink]="['/viewprofile']">
+      <span class='fa fa-address-card'></span> profile</button>
+    <button class="m-1 btn btn-outline-info" *ngIf="isLoggedIn() " [routerLink]="['/createoffer']">
+      <span class='fa fa-file'>
+      </span> create offer</button>
+    <!-- <button class="m-1 btn btn-outline-info" *ngIf="isLoggedIn()">History</button> -->
+    <button *ngIf="isLoggedIn()" class="m-1 btn btn-light disabled btn-outline-danger"><span
+        class='fa fa-user-circle'></span> {{getEmpId()}}</button>
   </nav>
   <!-- <button class="btn btn-outline-primary" *ngIf="!isLoggedIn" (click)="login()">Sign up</button> -->
-  <a class="btn btn-primary" [routerLink]="['/login']" *ngIf="!isLoggedIn()">login</a>
-  <button class="btn btn-outline-primary" *ngIf="isLoggedIn()" (click)="logout()">logout</button>
+  <a class="btn btn-outline-info" [routerLink]="['/login']" *ngIf="!isLoggedIn()"> <span class='fa fa-sign-in'></span>
+    login</a>
+  <button class="btn btn-outline-primary" *ngIf="isLoggedIn()" (click)="logout()"><span class='fa fa-sign-out'></span>
+    logout</button>
 </div>

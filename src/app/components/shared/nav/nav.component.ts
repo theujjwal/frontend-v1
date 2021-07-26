@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/employee.service';
 
 
@@ -12,16 +13,17 @@ export class NavComponent implements OnInit {
 
   // public isLoggedIn: Boolean = false;
 
-  constructor(private empService: EmployeeService) { }
+  constructor(private empService: EmployeeService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   logout() {
     this.empService.logout();
+    this.router.navigate(['/shop']);
   }
 
-  isLoggedIn():Boolean {
+  isLoggedIn(): Boolean {
     return this.empService.isLoggedIn();
   }
 
