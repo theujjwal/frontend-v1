@@ -47,6 +47,20 @@ export class ProductService {
     }
   }
 
+  getProductsByEmpId_2(empid: String): Observable<any> {
+    if (this.empService.isLoggedIn()) {
+      return this.http.get(this.OMS_URL + '/offers/search/by-author',
+        {
+          params: new HttpParams().set('authorId', '' + empid),
+          headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.empService.getToken()),
+          observe: 'response'
+        }
+      );
+    } else {
+      alert('login again');
+    }
+  }
+
   /**
    * 
    * @param newProduct 

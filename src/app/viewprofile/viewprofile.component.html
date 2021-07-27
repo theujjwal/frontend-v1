@@ -2,8 +2,14 @@
 
 <div class="card">
     <!-- <img src="img.jpg" alt="John" style="width:100%"> -->
-    <h1>{{employeeDetails?.firstName + ' ' + employeeDetails?.lastName}}</h1><span class="title text-warning"><i
-            class='fa fa-star'></i>{{employeeDetails?.pointsGained}}</span>
+    <div class="card-header">
+
+
+        <h5> 
+            <span><i class='fa fa-id-card'></i></span> {{employeeDetails?.firstName + ' ' + employeeDetails?.lastName}}
+            <span class="mx-2 title text-warning"><i class='fa fa-star'></i>{{employeeDetails?.pointsGained}}</span>
+        </h5>
+    </div>
     <p class="title">{{employeeDetails?.email}}</p>
     <p class="title">{{employeeDetails?.phoneNumber}}</p>
     <a href="#"><i class="fa fa-linkedin"></i></a>

@@ -19,6 +19,7 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
 import { LoginComponent } from './components/login/login.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
+import { SearchProductComponent } from './search-product/search-product.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ViewprofileComponent } from './viewprofile/viewprofile.component';
     ProductItemComponent,
     LoginComponent,
     CreateofferComponent,
-    ViewprofileComponent
+    ViewprofileComponent,
+    SearchProductComponent
   ],
   imports: [
     BrowserModule,

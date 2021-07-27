@@ -1,10 +1,36 @@
 <div class="card-filters">
-    <div class="card-header">
-        <strong>Search by category</strong>
+    <div class="card">
+        <div class="card-header">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <strong class='lead m-1'>search by category</strong>
+        </div>
+        <div class="card-body">
+            <div class='form-control btn-group-sm'>
+                <table>
+                    <tr *ngFor="let o of options">
+                        <td style="text-align: left;">{{o}}</td>
+                        <td style="text-align: right;">
+                            <button class="form-control-sm btn btn-sm btn-outline-warning text-sm-center"
+                                (click)="searchByCategory(o)">search</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-        <option *ngFor="let o of options">
-            <select class="btn btn-outline-primary btn-block btn-sm">{{o}}</select>
-        </option>
+    <div class="card">
+        <div class="card-header">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <strong class='lead m-1'>search by author id</strong>
+        </div>
+        <div class="card-body">
+            <form>
+
+
+            </form>
+        </div>
     </div>
 </div>

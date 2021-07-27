@@ -1,4 +1,25 @@
 <div class="row">
+  <div *ngIf="isLoggedIn()" class="card">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <form class="d-flex" #searchOfferEmpForm="ngForm" (ngSubmit)="searchByEmpId()">
+          <input class="form-control me-2" #search_empid='ngModel' name='search_empId' [(ngModel)]="search_empId"
+            type="text" placeholder="Search" aria-label="Search" required>
+          <button class="btn btn-outline-success btn-sm" type="submit">
+            <i class="fa fa-search m-1" aria-hidden="true"></i> employee id</button>
+        </form>
+        <div class="dropdown">
+          <button class="btn btn-sm btn-outline-success  dropdown-toggle" id="dropdownMenuButton"
+            data-toggle="dropdown">
+            <i class="fa fa-search m-1" aria-hidden="true"></i> category</button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button class="dropdown-item btn btn-sm" *ngFor="let o of options"
+              (click)="searchByCategory(o)">{{o}}</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
   <div class="col-md-4" *ngFor="let product of productList">
     <app-product-item [productItem]="product"></app-product-item>
   </div>
