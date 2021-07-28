@@ -9,7 +9,7 @@ export class EmployeeService {
   private AUTH_URL: String = 'http://localhost:10111/auth';
   private OMS_URL: String = 'http://localhost:9999/offer-service';
   private EMS_URL: String = 'http://localhost:9090/employee-service';
-  private PMS_URL: String = 'http://localhost:9090/points-service';
+  private PMS_URL: String = 'http://localhost:5555/points-service';
 
   private user: any = null;
   private jwtToken: String = null;
