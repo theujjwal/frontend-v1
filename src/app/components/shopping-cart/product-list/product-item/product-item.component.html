@@ -2,42 +2,79 @@
 
   <div class='card-header'>
     <p class="card-title m-1 text-decoration-underline text-md-start text-success font-monospace text-capitalize">
-      <i class="fa fa-user-o" aria-hidden="true"></i> 
+      <i class="fa fa-user-o" aria-hidden="true"></i>
       <strong class='m-1 text-lowercase'>{{productItem.authorId}}</strong>
       <span class="m-1 align-content-end badge badge-pill badge-info"><small>({{productItem.offerId}}) </small></span>
     </p>
-
   </div>
   <div class="card-body">
     <!-- <p class="lead"><strong> {{ productItem.details }}</strong></p> -->
     <div class="jumbotron jumbotron-fluid">
-      <div class="container">
+      <div>
         <h5 class="lead">{{productItem.details}}</h5>
       </div>
     </div>
 
     <div class="row">
-      <p class="card-text text-warning text-lowercase"><strong>{{ productItem.price.toString() | currency:'INR'
+      <p class="card-text text-dark text-lowercase"><strong>{{ productItem.price.toString() | currency:'INR'
           }}</strong>
       </p>
-
-
-      <p class="card-text text-capitalize">
-        <small>{{productItem.offerCategory}}</small>
+      <p class="card-text text-dark">
+        <i class="fa fa-calendar" aria-hidden="true"></i> <span> {{productItem.createdAt}} </span>
       </p>
+
+      <span class="badge badge-pill badge-light text-dark">{{productItem.offerCategory}}</span>
 
     </div>
 
     <div class="d-flex justify-content-between align-items-center m-1">
       <div *ngIf="isLoggedIn()">
-        <button type="button" class="btn m-1 btn-sm btn-primary product-btn" (click)="likeProduct()">
+        <button type="button" class="btn m-1 btn-sm btn-primary" (click)="likeProduct()" data-bs-toggle="tooltip"
+          data-bs-placement="top" title="{{getAllLikes()}}">
           <span class='fa fa-thumbs-up'></span><small>
-            ({{productItem.likes.length}}) </small>
+            {{productItem.likes.length}} </small>
         </button>
-        <!-- <button type="button" class="btn m-1 btn-sm btn-outline-secondary product-btn">
-          <span class='fa fa-comments'></span></button> -->
-        <button type="button" class="btn btn-sm btn-primary product-btn" (click)="handleAddToCart()">Add to
-          Cart</button>
+        <!-- Comment Section -->
+        <button type="button" class="btn m-1 btn-sm btn-outline-secondary" (click)='toggleCommentSection()'>toggle
+          comment section</button>
+        <hr>
+        <div>
+          <div *ngIf="show_comment_section">
+            <form #addCommentForm="ngForm">
+              <select required name="comment" id="comment" #comment="ngModel" [(ngModel)]="commentModel.comment"
+                style="width: 100%;">
+                <option>wanna buy!</option>
+                <option>very good</option>
+                <option>good</option>
+                <option>not bad</option>
+                <option>bad</option>
+                <option>worse</option>
+              </select>
+              <div class='btn-group m-1'>
+                <button type='submit' class="m-1 btn btn-sm btn-outline-primary btn-block" data-dismiss="modal"
+                  value="add" (click)="addCommment()">add</button>
+                <button type='reset' class="m-1 btn btn-sm btn-outline-primary btn-block" value="clear">clear</button>
+              </div>
+            </form>
+
+            <br>
+
+            <button type="button" class="btn m-1 btn-sm btn-outline-success" (click)='getAllComments()'>
+              <span class='fa fa-comments'></span> comments
+            </button>
+
+            <hr>
+            <div class='m-1'>
+              <ul *ngIf="show_all_comment" class="list-group">
+                <li class="list-group-item list-group-item-action" *ngFor='let c of allComments'>
+                  <small>{{c.text}} by </small><small class='text-muted'>{{c.commenterId}}</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>

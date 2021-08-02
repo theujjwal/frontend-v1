@@ -1,31 +1,62 @@
 <div class="row">
     <div class="col-md-4 offset-md-4">
-        <form>
-            <div class="mb-3">
-                <label for="offerdetails" class="form-label card-text">Enter offer details</label>
-                <textarea [(ngModel)]="model.details" class="form-control" id="offerdetails" name="model.details"
-                    aria-describedby="offerdetailss"></textarea>
-                <!-- <div id="offerdetailss" class="form-text">Enter offer details of your product.</div> -->
+        <div class="card border border-info">
+            <div class="card-header text-center bg-info text-white">
+                <h4>create new offer</h4>
             </div>
-            <div class="mb-3">
-                <label for="offerprice" class="form-label card-text">Price</label>
-                <input [(ngModel)]="model.price" name="model.price" type="number" min="0" class="form-control"
-                    id="offerprice">
+            <div class="card-body">
+                <form>
+                    <table class="table">
+                        <!-- <div class="mb-3"> -->
+                        <tr>
+                            <td> <label for="offerdetails" class="form-label card-text">offer details</label>
+                            </td>
+                            <td><textarea [(ngModel)]="model.details" class="form-control" id="offerdetails"
+                                    name="model.details" aria-describedby="offerdetailss" cols="50"></textarea></td>
+                            <!-- <div id="offerdetailss" class="form-text">Enter offer details of your product.</div> -->
+                            <!-- </div> -->
+                        </tr>
+                        <!-- <div class="mb-3"> -->
+                        <tr>
+                            <td>
+                                <label for="offerprice" class="form-label card-text">price</label>
+                            </td>
+                            <td>
+                                <input [(ngModel)]="model.price" name="model.price" type="number" min="0"
+                                    class="form-control" id="offerprice">
+                            </td>
+                        </tr>
+                        <!-- </div> -->
+                        <tr>
+                            <!-- <div class="mb-3 form-select-sm"> -->
+                            <!-- <input type="text" class="form-check-input" id="exampleCheck1"> -->
+                            <td>
+                                <label class="form-label" for="offerCategory">choose offer category</label>
+                            </td>
+                            <td>
+                                <select [(ngModel)]="model.offerCategory" id="offerCategory" name="model.offerCategory"
+                                    class="form-select form-control-sm" aria-label="Default select example">
+                                    <!-- <option selected>choose offer category</option> -->
+                                    <option value="COMPUTER_ACCESORIES">COMPUTER ACCESORIES</option>
+                                    <option value="REAL_ESTATE">REAL ESTATE</option>
+                                    <option value="FURNITURE">FURNITURE</option>
+                                    <option value="FOUR_WHEELER">FOUR WHEELER</option>
+                                </select>
+                            </td>
+                            <!-- </div> -->
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">
+                                <button type="submit" class="btn btn-sm m-1 btn-outline-success"
+                                    (click)="addOffer()">create</button>
+                            </td>
+                            <td style='text-align: right;'>
+                                <button type="reset" class="btn btn-sm m-1 btn-outline-warning">reset</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
             </div>
-            <div class="mb-3 form-check">
-                <!-- <input type="text" class="form-check-input" id="exampleCheck1"> -->
-                <!-- <label class="form-check-label" for="exampleCheck1">Offerc</label> -->
-                <select [(ngModel)]="model.offerCategory" name="model.offerCategory" class="form-select"
-                    aria-label="Default select example">
-                    <option selected>Select your Category</option>
-                    <option value="COMPUTER_ACCESORIES">COMPUTER ACCESORIES</option>
-                    <option value="REAL_ESTATE">REAL ESTATE</option>
-                    <option value="FURNITURE">FURNITURE</option>
-                    <option value="FOUR_WHEELER">FOUR WHEELER</option>
-                </select>
-
-            </div>
-            <button type="submit" class="btn btn-primary" (click)="addOffer()">Submit</button>
-        </form>
+        </div>
     </div>
 </div>

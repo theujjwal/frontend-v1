@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Product } from 'src/app/models/product'
 import { EmployeeService } from '../employee.service';
+import { Comment } from '../models/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -123,5 +124,28 @@ export class ProductService {
     } else {
       alert('login again');
     }
+  }
+
+  commentOnProduct(comment: Comment): Observable<any> {
+
+    console.log(this.empService.getToken());
+    return this.http.post(
+      this.OMS_URL + '/offers/' + comment.offerId + '/comments',
+      comment,
+      {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.empService.getToken()),
+        observe: "response"
+      }
+    );
+  }
+
+  fetchAllcomments(offerId: Number): Observable<any> {
+    return this.http.get(
+      this.OMS_URL + '/offers/' + offerId + '/comments',
+      {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.empService.getToken()),
+        observe: 'response'
+      }
+    );
   }
 }

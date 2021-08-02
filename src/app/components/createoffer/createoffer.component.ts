@@ -15,11 +15,16 @@ export class CreateofferComponent implements OnInit {
   constructor(private empServise: EmployeeService, private productService: ProductService, private route: Router) { }
 
   ngOnInit(): void {
-    // this.offer = new Product(0, "26-07-2021", null, null, [], null, true, null, 0, null);
-    this.model = {
-      details: "",
-      offerCategory: "",
-      price: 0
+    if (this.empServise.isLoggedIn()) {
+      // this.offer = new Product(0, "26-07-2021", null, null, [], null, true, null, 0, null);
+      this.model = {
+        details: "",
+        offerCategory: "",
+        price: 0
+      }
+    } else {
+      alert('login first');
+      this.route.navigate(['/shop']);
     }
   }
   addOffer() {
