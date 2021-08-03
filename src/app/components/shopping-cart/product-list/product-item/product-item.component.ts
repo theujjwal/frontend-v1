@@ -79,7 +79,7 @@ export class ProductItemComponent implements OnInit {
       (resp) => {
         alert('Comment added');
       }, (err) => {
-        alert(JSON.stringify(err));
+        alert('Unable to add comment');
       }
     )
   }

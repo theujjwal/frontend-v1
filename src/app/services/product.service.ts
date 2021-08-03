@@ -9,6 +9,10 @@ import { Comment } from '../models/comment';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * 
+ *  It communicates with backend performs Offer/Products related queries
+ */
 export class ProductService {
   private AUTH_URL: String = 'http://localhost:10111/auth';
   private OMS_URL: String = 'http://localhost:9999/offer-service';
@@ -31,7 +35,7 @@ export class ProductService {
   }
 
   /**
-   * 
+   *  Who is logged in now
    * @returns expected list of offers/products created by empId
    */
   getProductsByEmpId(): Observable<any> {
@@ -48,6 +52,11 @@ export class ProductService {
     }
   }
 
+  /**
+   * 
+   * @param empid any employee id
+   * @returns 
+   */
   getProductsByEmpId_2(empid: String): Observable<any> {
     if (this.empService.isLoggedIn()) {
       return this.http.get(this.OMS_URL + '/offers/search/by-author',

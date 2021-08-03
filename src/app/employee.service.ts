@@ -29,7 +29,7 @@ export class EmployeeService {
       }
     ).subscribe(response => {
       this.jwtToken = response.body["token"];
-      console.log("Success response : " + this.jwtToken);
+      // console.log("Success response : " + this.jwtToken);
       this.user = { "empId": empId };
       this.isEmpLoggedIn = true;
     }, (err) => {
